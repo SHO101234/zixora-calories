@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Thadingyut lantern, drawn with vector shapes only: body, caps, glow lines. No photo, no AI image. -->
+<!-- Lantern (Thadingyut shape kept), recoloured blue/teal: body, caps, glow lines. No photo, no AI image. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
     android:width="48dp"
     android:height="64dp"
     android:viewportWidth="48"
     android:viewportHeight="64">
     <path
-        android:fillColor="#E8A020"
+        android:fillColor="#1565C0"
         android:pathData="M20,2h8v4h-8z" />
     <path
-        android:fillColor="#F5B942"
+        android:fillColor="#4DB6AC"
         android:pathData="M14,8h20v4H14z" />
     <path
-        android:fillColor="#E86A17"
+        android:fillColor="#00897B"
         android:pathData="M10,12h28v36H10z" />
     <path
-        android:fillColor="#F5B942"
+        android:fillColor="#4DB6AC"
         android:pathData="M14,16h20v4H14zM14,40h20v4H14z" />
     <path
-        android:fillColor="#FFF6E5"
+        android:fillColor="#E0F2F1"
         android:pathData="M16,22h3v16h-3zM22,22h3v16h-3zM28,22h3v16h-3z" />
     <path
-        android:fillColor="#F5B942"
+        android:fillColor="#4DB6AC"
         android:pathData="M14,48h20v4H14z" />
     <path
-        android:fillColor="#E8A020"
+        android:fillColor="#1565C0"
         android:pathData="M20,52h8v4h-8z" />
     <path
-        android:fillColor="#E8A020"
+        android:fillColor="#1565C0"
         android:pathData="M24,56v6" />
 </vector>
