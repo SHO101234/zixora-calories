@@ -22,82 +22,210 @@
             android:text="ဒီအချက်တွေကို အမှန်အတိုင်း ထည့်ပါ။ မှားထည့်ရင် ပန်းတိုင် ကယ်လိုရီလည်း မှားသွားမယ်။ အရပ်ကို စင်တီမီတာနဲ့၊ ကိုယ်အလေးချိန်ကို ကီလိုဂရမ်နဲ့ ထည့်ပါ။"
             android:textSize="16sp"
             android:textColor="@color/ink" />
+
+        <!-- ကျား / မ — ဖောင်းကြွ ခလုတ်များ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="ကျား / မ"
-            android:textSize="16sp" />
-        <Spinner
-            android:id="@+id/spGender"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnGenderMale"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="6dp"
+                android:backgroundTint="@color/cream"
+                android:elevation="4dp"
+                android:text="ကျား"
+                android:textSize="18sp" />
+            <Button
+                android:id="@+id/btnGenderFemale"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:backgroundTint="@color/cream"
+                android:elevation="4dp"
+                android:text="မ"
+                android:textSize="18sp" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="အသက် (နှစ်)"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
         <EditText
             android:id="@+id/etAge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:textSize="18sp"
             android:inputType="number" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="အရပ် (စင်တီမီတာ)"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
         <EditText
             android:id="@+id/etHeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:textSize="18sp"
             android:inputType="number" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="ကိုယ်အလေးချိန် (ကီလိုဂရမ်)"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
         <EditText
             android:id="@+id/etWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/input_bg"
+            android:padding="12dp"
+            android:textSize="18sp"
             android:inputType="numberDecimal" />
+
+        <!-- တစ်နေ့တာ လှုပ်ရှားမှု — ဖောင်းကြွ ခလုတ်များ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="တစ်နေ့တာ လှုပ်ရှားမှု"
-            android:textSize="16sp" />
-        <Spinner
-            android:id="@+id/spActivity"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
+        <Button
+            android:id="@+id/btnAct0"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/cream"
+            android:elevation="4dp"
+            android:text="သိပ်မလှုပ်ရှားဘူး (ထိုင်ပြီးအလုပ်လုပ်တယ်)"
+            android:textSize="15sp" />
+        <Button
+            android:id="@+id/btnAct1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/cream"
+            android:elevation="4dp"
+            android:text="အနည်းငယ် လှုပ်ရှားတယ် (တစ်ပတ် ၁–၃ ရက်)"
+            android:textSize="15sp" />
+        <Button
+            android:id="@+id/btnAct2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/cream"
+            android:elevation="4dp"
+            android:text="အလယ်အလတ် လှုပ်ရှားတယ် (တစ်ပတ် ၃–၅ ရက်)"
+            android:textSize="15sp" />
+        <Button
+            android:id="@+id/btnAct3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:backgroundTint="@color/cream"
+            android:elevation="4dp"
+            android:text="များများ လှုပ်ရှားတယ် (တစ်ပတ် ၆–၇ ရက်)"
+            android:textSize="15sp" />
+
+        <!-- ပန်းတိုင် — ဖောင်းကြွ ခလုတ်များ -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:text="ပန်းတိုင်"
-            android:textSize="16sp" />
-        <Spinner
-            android:id="@+id/spGoal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/btnGoal0"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/cream"
+                android:elevation="4dp"
+                android:text="ဝိတ်လျော့မယ်"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/btnGoal1"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="@color/cream"
+                android:elevation="4dp"
+                android:text="ဝိတ်ထိန်းမယ်"
+                android:textSize="15sp" />
+            <Button
+                android:id="@+id/btnGoal2"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:backgroundTint="@color/cream"
+                android:elevation="4dp"
+                android:text="ဝိတ်တင်မယ်"
+                android:textSize="15sp" />
+        </LinearLayout>
+
         <Button
             android:id="@+id/btnCalc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="@color/gold"
+            android:textColor="@android:color/white"
+            android:elevation="6dp"
             android:text="တွက်ကြည့်မယ်" />
-        <TextView
-            android:id="@+id/txtResult"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textSize="16sp"
-            android:textColor="@color/ink" />
+            android:background="@drawable/summary_card_bg"
+            android:padding="16dp">
+            <TextView
+                android:id="@+id/txtResult"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/ink" />
+        </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,6 +238,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/orange"
+            android:textColor="@android:color/white"
+            android:elevation="6dp"
             android:text="သိမ်းမယ်" />
     </LinearLayout>
 </ScrollView>

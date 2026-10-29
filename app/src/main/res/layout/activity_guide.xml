@@ -15,12 +15,214 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:textColor="@color/deep_brown" />
-        <TextView
+
+        <!-- ကတ် ၁ -->
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:textSize="17sp"
-            android:textColor="@color/ink"
-            android:text="၁။ ကိုယ်ရေးအချက်အလက်ကို အရင် ထည့်ပါ။\n\n'ကိုယ်ရေးအချက်အလက်' ကို နှိပ်ပါ။ ကျား/မ၊ အသက်၊ အရပ် (စင်တီမီတာ)၊ ကိုယ်အလေးချိန် (ကီလိုဂရမ်) ကို အမှန်အတိုင်း ထည့်ပါ။ တစ်နေ့တာ ဘယ်လောက် လှုပ်ရှားလဲ ရွေးပါ — ထိုင်ပြီး အလုပ်လုပ်တာများရင် ပထမတစ်ခု၊ လမ်းလျှောက်တာ၊ အားကစား လုပ်တာများရင် နောက်တစ်ခု ရွေးပါ။ ပန်းတိုင်ကို ရွေးပါ — ဝိတ်လျော့မလား၊ ထိန်းမလား၊ တင်မလား။ ပြီးရင် 'သိမ်းမယ်' ကို နှိပ်ပါ။\n\n၂။ အစားအစာ ထည့်နည်း — နည်း ၂ မျိုး ရှိတယ်။\n\n(က) ပုံမှန်ပွဲ — ချိန်စရာ မလို့ဘူး။\nလက်ဖက်ရည်ဆိုင်မှာ စားသလို အစားအစာတွေအတွက် ဒီနည်းက အဆင်ပြေဆုံးပါ။ 'စာရင်းထဲက အစားအစာ ထည့်မယ်' ကို နှိပ်ပါ၊ လက်ဖက်ရည်၊ နန်းကြီးသုပ်၊ အီကြာကွေး စတာတွေထဲက ရွေးပါ၊ အရေအတွက်ကို ထည့်ပါ (ဥပမာ လက်ဖက်ရည် ၂ ခွက်)။ အလေးချိန် သိစရာ မလိုဘူး။ ပုံမှန်ပွဲတစ်ပွဲစာအတွက် ခန့်မှန်းခြေ ကယ်လိုရီကို app က တွက်ပေးမယ်။\n\n(ခ) အလေးချိန်နဲ့ — ပိုတိကျချင်ရင်။\nအိမ်မှာ ချက်တဲ့ အစားအစာ၊ ကိုယ်တိုင် ချိန်လို့ရတဲ့ အစားအစာအတွက် ဒီနည်းကို သုံးပါ။ 'အစားအစာအသစ် ထည့်မယ်' ကို နှိပ်ပါ၊ နာမည်ထည့်ပါ၊ 'ဂရမ်နဲ့' ကို ရွေးပါ၊ ၁၀၀ ဂရမ်မှာ ကယ်လိုရီ ဘယ်လောက် ပါလဲ ထည့်ပါ၊ ပြီးရင် ချိန်ထားတဲ့ ဂရမ်ကို ထည့်ပါ။ ဥပမာ ထမင်း ၂၅၀ ဂရမ်၊ ၁၀၀ ဂရမ်မှာ ၁၃၀ kcal ဆိုရင် ၃၂၅ kcal လို့ တွက်ပေးမယ်။ ချိန်တာ မလိုအပ်ဘူး — လိုချင်မှသာ သုံးပါ။\n\n၃။ စာရင်းထဲမှာ မရှိတဲ့ အစားအစာ ရှိရင် ဘာလုပ်မလဲ။\n\nစိတ်မပူပါနဲ့ — တွက်လို့ မရဘူး ဆိုတာ မရှိဘူး။ 'အစားအစာအသစ် ထည့်မယ်' ကို နှိပ်ပြီး နာမည်နဲ့ ကယ်လိုရီကို တစ်ခါ ထည့်လိုက်ပါ။ အထုပ်ပေါ်က ကယ်လိုရီကို ကြည့်ထည့်တာ အကောင်းဆုံးပါ၊ မရှိရင် စံ ခန့်မှန်းခြေကို ထည့်ပါ။ ထည့်ပြီးရင် အဲဒီအစားအစာက ကိုယ့်စာရင်းထဲမှာ အမြဲတမ်း ကျန်နေမယ်၊ နောက်ရက်တွေမှာ 'ကိုယ့်စာရင်း' ကနေ ပြန်ရွေးရုံပဲ။ ဒီလိုနဲ့ စာရင်းက ခင်ဗျား စားနေကျ အစားအစာတွေနဲ့ ပြည့်လာမယ်။\n\n၄။ BMR၊ TDEE၊ ပန်းတိုင် ဆိုတာ ဘာလဲ။\n\nBMR ဆိုတာ ဘာမှမလုပ်ပဲ၊ အိပ်နေရင်တောင် အသက်ရှူဖို့၊ နှလုံးခုန်ဖို့ တစ်နေ့လုံး လောင်တဲ့ ကယ်လိုရီပါ။\nTDEE ဆိုတာ BMR ကို လှုပ်ရှားမှုနဲ့ မြှောက်ထားတာ — တစ်နေ့တာ တကယ် လောင်တဲ့ ပမာဏပါ။\nပန်းတိုင်က TDEE ကနေ တွက်တာပါ — ဝိတ်လျော့မယ်ဆိုရင် TDEE ထက် ၅၀၀ လျှော့တယ်၊ ဝိတ်ထိန်းမယ်ဆိုရင် TDEE အတိုင်းပဲ၊ ဝိတ်တင်မယ်ဆိုရင် TDEE ထက် ၃၀၀ ပေါင်းတယ်။\n\n၅။ တွက်နည်း ဘယ်လောက် တိကျလဲ။\n\nဒီ formula (Mifflin-St Jeor) က အာဟာရပညာရှင်တွေ သုံးတဲ့ ဆေးဘက်ဆိုင်ရာ စံပြ formula ပါ။ ဒါပေမယ့် ရလဒ် တိကျဖို့က ခင်ဗျား ထည့်တဲ့ အရပ်၊ ကိုယ်အလေးချိန်၊ လှုပ်ရှားမှု မှန်ဖို့ လိုတယ်။ အစားအစာကိုလည်း တိတိကျကျ ထည့်ဖို့ လိုတယ် — ဂရမ်နဲ့ ချိန်ထည့်ရင် ပိုတိကျတယ်။ တစ်ယောက်ချင်းစီရဲ့ ဇီဝကမ္မနဲ့ ချက်ပြုတ်နည်းပေါ်မူတည်ပြီး အနည်းငယ် ကွာနိုင်တယ်။ ဓာတ်ခွဲခန်း တိုင်းတာမှ ၁၀၀% တိကျမယ်။\n\n၆။ ဘယ်အခြေအနေတွေမှာ ဆရာဝန်နဲ့ တိုင်ပင်ရမလဲ။\n\nဆီးချိုရောဂါ၊ ကျောက်ကပ်ရောဂါ၊ ကိုယ်ဝန်ရှိနေတာ၊ အစားအသောက် ဆိုင်ရာ ရောဂါ၊ ဆေးသောက်နေရတာမျိုးရှိရင် ဒီ app ရဲ့ ပန်းတိုင်ကို အတိုင်း မလိုက်ပဲ၊ ဆရာဝန်သတ်မှတ်တဲ့ ပန်းတိုင်နဲ့သာ သုံးပါ။\n\n၇။ Offline နဲ့ လုံခြုံမှု။\n\nဒီ app က အင်တာနက် လုံးဝ မသုံးဘူး။ အကောင့် မလိုဘူး။ ဒေတာအားလုံး ဖုန်းထဲမှာပဲ ရှိတယ်။ AI လည်း မပါဘူး၊ API key လည်း မတောင်းဘူး။\n\n၈။ ဒေတာ မပျောက်ဘူး — ရက်ကြာကြာ မဖွင့်လည်း အတူတူပဲ။\n\nစားထားတဲ့ စာရင်းနဲ့ ကိုယ့်အစားအစာ စာရင်းကို ဖုန်းထဲမှာ အမြဲတမ်း သိမ်းထားတယ်။ App ကို ပိတ်လိုက်၊ ဖုန်းကို restart လုပ်လိုက်၊ ရက်သတ္တပတ်နဲ့ချီ မဖွင့်ပဲ နေလိုက် — ပြန်ဖွင့်တဲ့အခါ ဒေတာ အတိုင်း ပြန်ပေါ်မယ်။ နေ့အလိုက် ခွဲသိမ်းထားတယ် — ဒီနေ့ စားတာက ဒီနေ့အောက်မှာပဲ ပေါ်မယ်၊ အရင်ရက်တွေက စားတာတွေက သူတို့ရက်အောက်မှာ ကျန်နေမယ်၊ ဒီနေ့ထဲ ရောမသွားဘူး။ ပြတဲ့ ရက်စွဲကလည်း ဖုန်းရဲ့ ဒေသ ရက်စွဲ အတိုင်းပဲ ဖြစ်တယ်။" />
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h1"
+                android:padding="12dp"
+                android:text="၁။ ကိုယ်ရေးအချက်အလက်ကို အရင် ထည့်ပါ။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/deep_brown" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="'ကိုယ်ရေးအချက်အလက်' ကို နှိပ်ပါ။ ကျား/မ၊ အသက်၊ အရပ် (စင်တီမီတာ)၊ ကိုယ်အလေးချိန် (ကီလိုဂရမ်) ကို အမှန်အတိုင်း ထည့်ပါ။ တစ်နေ့တာ ဘယ်လောက် လှုပ်ရှားလဲ ရွေးပါ — ထိုင်ပြီး အလုပ်လုပ်တာများရင် ပထမတစ်ခု၊ လမ်းလျှောက်တာ၊ အားကစား လုပ်တာများရင် နောက်တစ်ခု ရွေးပါ။ ပန်းတိုင်ကို ရွေးပါ — ဝိတ်လျော့မလား၊ ထိန်းမလား၊ တင်မလား။ ပြီးရင် 'သိမ်းမယ်' ကို နှိပ်ပါ။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၂ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h2"
+                android:padding="12dp"
+                android:text="၂။ အစားအစာ ထည့်နည်း — နည်း ၂ မျိုး ရှိတယ်။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="(က) ပုံမှန်ပွဲ — ချိန်စရာ မလို့ဘူး။\nလက်ဖက်ရည်ဆိုင်မှာ စားသလို အစားအစာတွေအတွက် ဒီနည်းက အဆင်ပြေဆုံးပါ။ 'စာရင်းထဲက အစားအစာ ထည့်မယ်' ကို နှိပ်ပါ၊ လက်ဖက်ရည်၊ နန်းကြီးသုပ်၊ အီကြာကွေး စတာတွေထဲက ရွေးပါ၊ အရေအတွက်ကို ထည့်ပါ (ဥပမာ လက်ဖက်ရည် ၂ ခွက်)။ အလေးချိန် သိစရာ မလိုဘူး။ ပုံမှန်ပွဲတစ်ပွဲစာအတွက် ခန့်မှန်းခြေ ကယ်လိုရီကို app က တွက်ပေးမယ်။\n\n(ခ) အလေးချိန်နဲ့ — ပိုတိကျချင်ရင်။\nအိမ်မှာ ချက်တဲ့ အစားအစာ၊ ကိုယ်တိုင် ချိန်လို့ရတဲ့ အစားအစာအတွက် ဒီနည်းကို သုံးပါ။ 'အစားအစာအသစ် ထည့်မယ်' ကို နှိပ်ပါ၊ နာမည်ထည့်ပါ၊ 'ဂရမ်နဲ့' ကို ရွေးပါ၊ ၁၀၀ ဂရမ်မှာ ကယ်လိုရီ ဘယ်လောက် ပါလဲ ထည့်ပါ၊ ပြီးရင် ချိန်ထားတဲ့ ဂရမ်ကို ထည့်ပါ။ ဥပမာ ထမင်း ၂၅၀ ဂရမ်၊ ၁၀၀ ဂရမ်မှာ ၁၃၀ kcal ဆိုရင် ၃၂၅ kcal လို့ တွက်ပေးမယ်။ ချိန်တာ မလိုအပ်ဘူး — လိုချင်မှသာ သုံးပါ။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၃ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h3"
+                android:padding="12dp"
+                android:text="၃။ စာရင်းထဲမှာ မရှိတဲ့ အစားအစာ ရှိရင် ဘာလုပ်မလဲ။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="စိတ်မပူပါနဲ့ — တွက်လို့ မရဘူး ဆိုတာ မရှိဘူး။ 'အစားအစာအသစ် ထည့်မယ်' ကို နှိပ်ပြီး နာမည်နဲ့ ကယ်လိုရီကို တစ်ခါ ထည့်လိုက်ပါ။ အထုပ်ပေါ်က ကယ်လိုရီကို ကြည့်ထည့်တာ အကောင်းဆုံးပါ၊ မရှိရင် စံ ခန့်မှန်းခြေကို ထည့်ပါ။ ထည့်ပြီးရင် အဲဒီအစားအစာက ကိုယ့်စာရင်းထဲမှာ အမြဲတမ်း ကျန်နေမယ်၊ နောက်ရက်တွေမှာ 'ကိုယ့်စာရင်း' ကနေ ပြန်ရွေးရုံပဲ။ ဒီလိုနဲ့ စာရင်းက ခင်ဗျား စားနေကျ အစားအစာတွေနဲ့ ပြည့်လာမယ်။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၄ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h4"
+                android:padding="12dp"
+                android:text="၄။ BMR၊ TDEE၊ ပန်းတိုင် ဆိုတာ ဘာလဲ။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="BMR ဆိုတာ ဘာမှမလုပ်ပဲ၊ အိပ်နေရင်တောင် အသက်ရှူဖို့၊ နှလုံးခုန်ဖို့ တစ်နေ့လုံး လောင်တဲ့ ကယ်လိုရီပါ။\nTDEE ဆိုတာ BMR ကို လှုပ်ရှားမှုနဲ့ မြှောက်ထားတာ — တစ်နေ့တာ တကယ် လောင်တဲ့ ပမာဏပါ။\nပန်းတိုင်က TDEE ကနေ တွက်တာပါ — ဝိတ်လျော့မယ်ဆိုရင် TDEE ထက် ၅၀၀ လျှော့တယ်၊ ဝိတ်ထိန်းမယ်ဆိုရင် TDEE အတိုင်းပဲ၊ ဝိတ်တင်မယ်ဆိုရင် TDEE ထက် ၃၀၀ ပေါင်းတယ်။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၅ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h5"
+                android:padding="12dp"
+                android:text="၅။ တွက်နည်း ဘယ်လောက် တိကျလဲ။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/deep_brown" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="ဒီ formula (Mifflin-St Jeor) က အာဟာရပညာရှင်တွေ သုံးတဲ့ ဆေးဘက်ဆိုင်ရာ စံပြ formula ပါ။ ဒါပေမယ့် ရလဒ် တိကျဖို့က ခင်ဗျား ထည့်တဲ့ အရပ်၊ ကိုယ်အလေးချိန်၊ လှုပ်ရှားမှု မှန်ဖို့ လိုတယ်။ အစားအစာကိုလည်း တိတိကျကျ ထည့်ဖို့ လိုတယ် — ဂရမ်နဲ့ ချိန်ထည့်ရင် ပိုတိကျတယ်။ တစ်ယောက်ချင်းစီရဲ့ ဇီဝကမ္မနဲ့ ချက်ပြုတ်နည်းပေါ်မူတည်ပြီး အနည်းငယ် ကွာနိုင်တယ်။ ဓာတ်ခွဲခန်း တိုင်းတာမှ ၁၀၀% တိကျမယ်။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၆ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h6"
+                android:padding="12dp"
+                android:text="၆။ ဘယ်အခြေအနေတွေမှာ ဆရာဝန်နဲ့ တိုင်ပင်ရမလဲ။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="ဆီးချိုရောဂါ၊ ကျောက်ကပ်ရောဂါ၊ ကိုယ်ဝန်ရှိနေတာ၊ အစားအသောက် ဆိုင်ရာ ရောဂါ၊ ဆေးသောက်နေရတာမျိုးရှိရင် ဒီ app ရဲ့ ပန်းတိုင်ကို အတိုင်း မလိုက်ပဲ၊ ဆရာဝန်သတ်မှတ်တဲ့ ပန်းတိုင်နဲ့သာ သုံးပါ။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၇ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h7"
+                android:padding="12dp"
+                android:text="၇။ Offline နဲ့ လုံခြုံမှု။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="ဒီ app က အင်တာနက် လုံးဝ မသုံးဘူး။ အကောင့် မလိုဘူး။ ဒေတာအားလုံး ဖုန်းထဲမှာပဲ ရှိတယ်။ AI လည်း မပါဘူး၊ API key လည်း မတောင်းဘူး။" />
+        </LinearLayout>
+
+        <!-- ကတ် ၈ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:elevation="4dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/guide_h8"
+                android:padding="12dp"
+                android:text="၈။ ဒေတာ မပျောက်ဘူး — ရက်ကြာကြာ မဖွင့်လည်း အတူတူပဲ။"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:textSize="17sp"
+                android:textColor="@color/ink"
+                android:text="စားထားတဲ့ စာရင်းနဲ့ ကိုယ့်အစားအစာ စာရင်းကို ဖုန်းထဲမှာ အမြဲတမ်း သိမ်းထားတယ်။ App ကို ပိတ်လိုက်၊ ဖုန်းကို restart လုပ်လိုက်၊ ရက်သတ္တပတ်နဲ့ချီ မဖွင့်ပဲ နေလိုက် — ပြန်ဖွင့်တဲ့အခါ ဒေတာ အတိုင်း ပြန်ပေါ်မယ်။ နေ့အလိုက် ခွဲသိမ်းထားတယ် — ဒီနေ့ စားတာက ဒီနေ့အောက်မှာပဲ ပေါ်မယ်၊ အရင်ရက်တွေက စားတာတွေက သူတို့ရက်အောက်မှာ ကျန်နေမယ်၊ ဒီနေ့ထဲ ရောမသွားဘူး။ ပြတဲ့ ရက်စွဲကလည်း ဖုန်းရဲ့ ဒေသ ရက်စွဲ အတိုင်းပဲ ဖြစ်တယ်။" />
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>
