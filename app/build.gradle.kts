@@ -15,7 +15,23 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        // Stable test signing key (CI secrets) so every build shares one signature
+        // and installs as an update over previous builds. Local builds without the
+        // secrets fall back to the default debug key.
+        create("calorieTest") {
+            storeFile = file("calorie-test.p12")
+            storeType = "PKCS12"
+            storePassword = System.getenv("CALORIE_STORE_PASSWORD")
+            keyAlias = System.getenv("CALORIE_KEY_ALIAS") ?: "calorie-test"
+            keyPassword = System.getenv("CALORIE_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("calorieTest")
+        }
         release {
             isMinifyEnabled = false
         }
