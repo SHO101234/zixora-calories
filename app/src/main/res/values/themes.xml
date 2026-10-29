@@ -1,22 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Thadingyut theme: warm gold / orange / deep warm brown, no photos, no AI images -->
-    <color name="gold">#E8A020</color>
-    <color name="gold_light">#F5B942</color>
-    <color name="orange">#E86A17</color>
-    <color name="deep_brown">#3E1F0E</color>
-    <color name="maroon">#7A1F1F</color>
-    <color name="cream">#FFF6E5</color>
+    <!-- Blue/teal theme (v5): calm blues/teals only — orange is banned (appetite-stimulating). Thadingyut lantern shapes kept, warm palette removed. -->
+    <color name="blue">#1565C0</color>
+    <color name="blue_light">#64B5F6</color>
+    <color name="blue_pale">#BBDEFB</color>
+    <color name="teal">#00897B</color>
+    <color name="teal_light">#4DB6AC</color>
+    <color name="navy">#0D47A1</color>
+    <color name="deep_navy">#0D2B45</color>
+    <color name="ice">#F2F7FB</color>
     <color name="card">#FFFFFF</color>
-    <color name="ink">#2B1A0E</color>
-    <color name="ink_soft">#6B4A2E</color>
+    <color name="ink">#102A43</color>
+    <color name="ink_soft">#54707F</color>
 
     <style name="Theme.CalorieApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/orange</item>
-        <item name="colorPrimaryVariant">@color/maroon</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/navy</item>
         <item name="colorOnPrimary">@android:color/white</item>
-        <item name="android:statusBarColor">@color/deep_brown</item>
-        <item name="android:windowBackground">@color/cream</item>
+        <item name="android:statusBarColor">@color/deep_navy</item>
+        <item name="android:windowBackground">@color/ice</item>
     </style>
 
     <style name="CardStyle">
