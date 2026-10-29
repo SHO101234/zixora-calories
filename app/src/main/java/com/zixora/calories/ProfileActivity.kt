@@ -92,16 +92,16 @@ class ProfileActivity : AppCompatActivity() {
         if (Store.hasProfile(this)) showResult(cur)
     }
 
-    /** Selected button = orange fill + white text + higher elevation;
-     *  unselected = pale cream fill + dark text. */
+    /** Selected button = teal fill + white text + higher elevation;
+     *  unselected = pale ice fill + dark text. */
     private fun styleChoice(b: Button, selected: Boolean) {
         if (selected) {
-            b.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E86A17"))
+            b.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#00897B"))
             b.setTextColor(Color.WHITE)
             b.elevation = 8f
         } else {
-            b.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFF6E5"))
-            b.setTextColor(Color.parseColor("#2B1A0E"))
+            b.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#F2F7FB"))
+            b.setTextColor(Color.parseColor("#102A43"))
             b.elevation = 4f
         }
     }
