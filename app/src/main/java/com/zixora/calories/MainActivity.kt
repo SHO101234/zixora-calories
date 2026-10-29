@@ -50,11 +50,25 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtRemain: TextView
     private lateinit var txtSummary: TextView
     private lateinit var progress: android.widget.ProgressBar
-    // Banner animation (ValueAnimator/ObjectAnimator only, no libraries).
+    // Banner animation (animators/Handler only, no libraries).
     // Started in onResume, cancelled in onPause so nothing animates off-screen.
-    private var streakAnimator: ValueAnimator? = null
     private var lanternAnimatorL: ObjectAnimator? = null
     private var lanternAnimatorR: ObjectAnimator? = null
+    private val lightsHandler = android.os.Handler(android.os.Looper.getMainLooper())
+    private var lightsPhase = false
+    private val lightsRunnable = object : Runnable {
+        override fun run() {
+            lightsPhase = !lightsPhase
+            for (rowId in intArrayOf(R.id.lightsTopRow, R.id.lightsBottomRow)) {
+                val row: android.widget.LinearLayout = findViewById(rowId)
+                for (i in 0 until row.childCount) {
+                    // Even dots and odd dots alternate: one set bright, the other dim.
+                    row.getChildAt(i).alpha = if ((i % 2 == 0) == lightsPhase) 1f else 0.35f
+                }
+            }
+            lightsHandler.postDelayed(this, 600)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -90,8 +104,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun startBannerAnimation() {
         stopBannerAnimation()
-        val banner: android.view.View = findViewById(R.id.bannerBox)
-        val streak: android.view.View = findViewById(R.id.streakView)
         val left: android.widget.ImageView = findViewById(R.id.lanternLeft)
         val right: android.widget.ImageView = findViewById(R.id.lanternRight)
         // Lantern glow pulse: alpha 0.75 -> 1.0, gentle reverse loop.
@@ -103,29 +115,12 @@ class MainActivity : AppCompatActivity() {
             duration = 1800; startDelay = 900; repeatCount = ValueAnimator.INFINITE
             repeatMode = ValueAnimator.REVERSE; start()
         }
-        // Light streak: sweep left -> right for ~70% of the cycle, then hold
-        // off-screen so there is a quiet pause between sweeps.
-        banner.post {
-            val width = banner.width
-            if (width <= 0) return@post
-            val sweep = ValueAnimator.ofFloat(0f, 1f).apply {
-                duration = 5500; repeatCount = ValueAnimator.INFINITE
-                addUpdateListener { anim ->
-                    val f = anim.animatedValue as Float
-                    streak.translationX = if (f < 0.7f) {
-                        -220f + (width + 440f) * (f / 0.7f)
-                    } else {
-                        width + 220f
-                    }
-                }
-            }
-            streakAnimator = sweep
-            sweep.start()
-        }
+        // String lights: even/odd bulbs chase (alternate bright/dim every 600ms).
+        lightsHandler.post(lightsRunnable)
     }
 
     private fun stopBannerAnimation() {
-        streakAnimator?.cancel(); streakAnimator = null
+        lightsHandler.removeCallbacks(lightsRunnable)
         lanternAnimatorL?.cancel(); lanternAnimatorL = null
         lanternAnimatorR?.cancel(); lanternAnimatorR = null
     }
