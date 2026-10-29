@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="အစားအစာ နာမည်"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/customName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ဥပမာ: ကြက်သားသုပ်" />
+    <RadioGroup
+        android:id="@+id/customMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="12dp">
+        <RadioButton
+            android:id="@+id/modePreset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="တစ်ပွဲစာ"
+            android:checked="true" />
+        <RadioButton
+            android:id="@+id/modeGrams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ဂရမ်နဲ့ (၁၀၀ ဂရမ်စာ)"
+            android:layout_marginStart="16dp" />
+    </RadioGroup>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="ကယ်လိုရီ (တစ်ပွဲစာ ဒါမှမဟုတ် ၁၀၀ ဂရမ်စာ)"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/customKcal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="ပမာဏ (ပွဲအရေအတွက် ဒါမှမဟုတ် ဂရမ်)"
+        android:textSize="16sp" />
+    <EditText
+        android:id="@+id/customAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:text="1" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="မှတ်ချက်: စာရင်းထဲမှာ မရှိတဲ့ အစားအစာကို တစ်ခါ ထည့်လိုက်ရင် ကိုယ့်စာရင်းထဲမှာ အမြဲတမ်း ကျန်နေမယ်၊ နောက်ရက်တွေလည်း ပြန်သုံးလို့ရတယ်။"
+        android:textSize="14sp" />
+</LinearLayout>

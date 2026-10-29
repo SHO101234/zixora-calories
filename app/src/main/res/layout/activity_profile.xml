@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/cream">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ကိုယ်ရေးအချက်အလက်"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_brown" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ဒီအချက်တွေကို အမှန်အတိုင်း ထည့်ပါ။ မှားထည့်ရင် ပန်းတိုင် ကယ်လိုရီလည်း မှားသွားမယ်။ အရပ်ကို စင်တီမီတာနဲ့၊ ကိုယ်အလေးချိန်ကို ကီလိုဂရမ်နဲ့ ထည့်ပါ။"
+            android:textSize="16sp"
+            android:textColor="@color/ink" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ကျား / မ"
+            android:textSize="16sp" />
+        <Spinner
+            android:id="@+id/spGender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="အသက် (နှစ်)"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="အရပ် (စင်တီမီတာ)"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/etHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="ကိုယ်အလေးချိန် (ကီလိုဂရမ်)"
+            android:textSize="16sp" />
+        <EditText
+            android:id="@+id/etWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="တစ်နေ့တာ လှုပ်ရှားမှု"
+            android:textSize="16sp" />
+        <Spinner
+            android:id="@+id/spActivity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="ပန်းတိုင်"
+            android:textSize="16sp" />
+        <Spinner
+            android:id="@+id/spGoal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/btnCalc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="တွက်ကြည့်မယ်" />
+        <TextView
+            android:id="@+id/txtResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            android:textColor="@color/ink" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="တွက်နည်း (Mifflin-St Jeor — အာဟာရပညာရှင်တွေ သုံးတဲ့ စံပြ): ကျားဆိုရင် BMR = ၁၀×ကိုယ်အလေးချိန် + ၆.၂၅×အရပ် − ၅×အသက် + ၅။ မဆိုရင် −၁၆၁။ ပြီးရင် လှုပ်ရှားမှုနဲ့ မြှောက်ပြီး TDEE ရတယ်။"
+            android:textSize="15sp"
+            android:textColor="@color/ink_soft" />
+        <Button
+            android:id="@+id/btnSaveProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="သိမ်းမယ်" />
+    </LinearLayout>
+</ScrollView>
