@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/cream">
+    android:background="@color/ice">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
             android:text="လမ်းညွှန် — အသုံးပြုနည်း"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
 
         <!-- ကတ် ၁ -->
         <LinearLayout
@@ -32,7 +32,7 @@
                 android:text="၁။ ကိုယ်ရေးအချက်အလက်ကို အရင် ထည့်ပါ။"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/deep_brown" />
+                android:textColor="@color/deep_navy" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                 android:text="၅။ တွက်နည်း ဘယ်လောက် တိကျလဲ။"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="@color/deep_brown" />
+                android:textColor="@color/deep_navy" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

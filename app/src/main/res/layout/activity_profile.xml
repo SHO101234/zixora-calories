@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="@color/cream">
+    android:background="@color/ice">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,7 +14,7 @@
             android:text="ကိုယ်ရေးအချက်အလက်"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
             android:text="ကျား / မ"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="6dp"
-                android:backgroundTint="@color/cream"
+                android:backgroundTint="@color/ice"
                 android:elevation="4dp"
                 android:text="ကျား"
                 android:textSize="18sp" />
@@ -53,7 +53,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
-                android:backgroundTint="@color/cream"
+                android:backgroundTint="@color/ice"
                 android:elevation="4dp"
                 android:text="မ"
                 android:textSize="18sp" />
@@ -66,7 +66,7 @@
             android:text="အသက် (နှစ်)"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <EditText
             android:id="@+id/etAge"
             android:layout_width="match_parent"
@@ -83,7 +83,7 @@
             android:text="အရပ် (စင်တီမီတာ)"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <EditText
             android:id="@+id/etHeight"
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:text="ကိုယ်အလေးချိန် (ကီလိုဂရမ်)"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <EditText
             android:id="@+id/etWeight"
             android:layout_width="match_parent"
@@ -119,13 +119,13 @@
             android:text="တစ်နေ့တာ လှုပ်ရှားမှု"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <Button
             android:id="@+id/btnAct0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:backgroundTint="@color/cream"
+            android:backgroundTint="@color/ice"
             android:elevation="4dp"
             android:text="သိပ်မလှုပ်ရှားဘူး (ထိုင်ပြီးအလုပ်လုပ်တယ်)"
             android:textSize="15sp" />
@@ -134,7 +134,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:backgroundTint="@color/cream"
+            android:backgroundTint="@color/ice"
             android:elevation="4dp"
             android:text="အနည်းငယ် လှုပ်ရှားတယ် (တစ်ပတ် ၁–၃ ရက်)"
             android:textSize="15sp" />
@@ -143,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:backgroundTint="@color/cream"
+            android:backgroundTint="@color/ice"
             android:elevation="4dp"
             android:text="အလယ်အလတ် လှုပ်ရှားတယ် (တစ်ပတ် ၃–၅ ရက်)"
             android:textSize="15sp" />
@@ -152,7 +152,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:backgroundTint="@color/cream"
+            android:backgroundTint="@color/ice"
             android:elevation="4dp"
             android:text="များများ လှုပ်ရှားတယ် (တစ်ပတ် ၆–၇ ရက်)"
             android:textSize="15sp" />
@@ -165,7 +165,7 @@
             android:text="ပန်းတိုင်"
             android:textSize="16sp"
             android:textStyle="bold"
-            android:textColor="@color/deep_brown" />
+            android:textColor="@color/deep_navy" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -177,7 +177,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="4dp"
-                android:backgroundTint="@color/cream"
+                android:backgroundTint="@color/ice"
                 android:elevation="4dp"
                 android:text="ဝိတ်လျော့မယ်"
                 android:textSize="15sp" />
@@ -188,7 +188,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginEnd="4dp"
-                android:backgroundTint="@color/cream"
+                android:backgroundTint="@color/ice"
                 android:elevation="4dp"
                 android:text="ဝိတ်ထိန်းမယ်"
                 android:textSize="15sp" />
@@ -198,7 +198,7 @@
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
-                android:backgroundTint="@color/cream"
+                android:backgroundTint="@color/ice"
                 android:elevation="4dp"
                 android:text="ဝိတ်တင်မယ်"
                 android:textSize="15sp" />
@@ -209,7 +209,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="18dp"
-            android:backgroundTint="@color/gold"
+            android:backgroundTint="@color/blue"
             android:textColor="@android:color/white"
             android:elevation="6dp"
             android:text="တွက်ကြည့်မယ်" />
@@ -239,7 +239,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="@color/orange"
+            android:backgroundTint="@color/teal"
             android:textColor="@android:color/white"
             android:elevation="6dp"
             android:text="သိမ်းမယ်" />
