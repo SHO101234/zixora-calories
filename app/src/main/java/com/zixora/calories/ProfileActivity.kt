@@ -1,25 +1,40 @@
 package com.zixora.calories
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
-import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class ProfileActivity : AppCompatActivity() {
+    // Raised-button selections (replaces the old Spinners; values map 1:1
+    // onto the same Profile fields, so Calc/Store logic is untouched).
+    private var genderMale = true
+    private var activityIdx = 1
+    private var goalIdx = 1
+
+    private lateinit var btnGenderMale: Button
+    private lateinit var btnGenderFemale: Button
+    private lateinit var actButtons: List<Button>
+    private lateinit var goalButtons: List<Button>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
 
-        val spGender: Spinner = findViewById(R.id.spGender)
-        val spActivity: Spinner = findViewById(R.id.spActivity)
-        val spGoal: Spinner = findViewById(R.id.spGoal)
-        spGender.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, listOf("ကျား", "မ"))
-        spActivity.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, Calc.ACTIVITY_LABELS)
-        spGoal.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, Calc.GOAL_LABELS)
+        btnGenderMale = findViewById(R.id.btnGenderMale)
+        btnGenderFemale = findViewById(R.id.btnGenderFemale)
+        actButtons = listOf(
+            findViewById(R.id.btnAct0), findViewById(R.id.btnAct1),
+            findViewById(R.id.btnAct2), findViewById(R.id.btnAct3)
+        )
+        goalButtons = listOf(
+            findViewById(R.id.btnGoal0), findViewById(R.id.btnGoal1),
+            findViewById(R.id.btnGoal2)
+        )
 
         val etAge: EditText = findViewById(R.id.etAge)
         val etHeight: EditText = findViewById(R.id.etHeight)
@@ -27,12 +42,18 @@ class ProfileActivity : AppCompatActivity() {
         val txtResult: TextView = findViewById(R.id.txtResult)
 
         val cur = Store.loadProfile(this)
-        spGender.setSelection(if (cur.isMale) 0 else 1)
-        spActivity.setSelection(cur.activity)
-        spGoal.setSelection(cur.goal)
+        genderMale = cur.isMale
+        activityIdx = cur.activity.coerceIn(0, 3)
+        goalIdx = cur.goal.coerceIn(0, 2)
         etAge.setText(cur.age.toString())
         etHeight.setText(cur.heightCm.toString())
         etWeight.setText(if (cur.weightKg % 1.0 == 0.0) cur.weightKg.toInt().toString() else cur.weightKg.toString())
+        refreshChoiceStyles()
+
+        btnGenderMale.setOnClickListener { genderMale = true; refreshChoiceStyles() }
+        btnGenderFemale.setOnClickListener { genderMale = false; refreshChoiceStyles() }
+        actButtons.forEachIndexed { i, b -> b.setOnClickListener { activityIdx = i; refreshChoiceStyles() } }
+        goalButtons.forEachIndexed { i, b -> b.setOnClickListener { goalIdx = i; refreshChoiceStyles() } }
 
         fun showResult(p: Profile) {
             val bmr = Calc.bmr(p).toInt()
@@ -47,31 +68,48 @@ class ProfileActivity : AppCompatActivity() {
                 "ဝိတ်လျော့မယ်ဆိုရင် TDEE ထက် ၅၀၀ လျှော့တယ်။ ဝိတ်ထိန်းမယ်ဆိုရင် TDEE အတိုင်းပဲ။ ဝိတ်တင်မယ်ဆိုရင် TDEE ထက် ၃၀၀ ပေါင်းတယ်။$warn"
         }
 
-        findViewById<Button>(R.id.btnCalc).setOnClickListener {
+        fun readProfile(): Profile? {
             val age = etAge.text.toString().toIntOrNull()
             val h = etHeight.text.toString().toIntOrNull()
             val w = etWeight.text.toString().toDoubleOrNull()
             if (age == null || h == null || w == null || age <= 0 || h <= 0 || w <= 0) {
                 Toast.makeText(this, "အသက်၊ အရပ်၊ ကိုယ်အလေးချိန်ကို သေချာ ထည့်ပါ", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
+                return null
             }
-            val p = Profile(spGender.selectedItemPosition == 0, age, h, w, spActivity.selectedItemPosition, spGoal.selectedItemPosition)
-            showResult(p)
+            return Profile(genderMale, age, h, w, activityIdx, goalIdx)
+        }
+
+        findViewById<Button>(R.id.btnCalc).setOnClickListener {
+            readProfile()?.let { showResult(it) }
         }
         findViewById<Button>(R.id.btnSaveProfile).setOnClickListener {
-            val age = etAge.text.toString().toIntOrNull()
-            val h = etHeight.text.toString().toIntOrNull()
-            val w = etWeight.text.toString().toDoubleOrNull()
-            if (age == null || h == null || w == null || age <= 0 || h <= 0 || w <= 0) {
-                Toast.makeText(this, "အသက်၊ အရပ်၊ ကိုယ်အလေးချိန်ကို သေချာ ထည့်ပါ", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            val p = Profile(spGender.selectedItemPosition == 0, age, h, w, spActivity.selectedItemPosition, spGoal.selectedItemPosition)
+            val p = readProfile() ?: return@setOnClickListener
             Store.saveProfile(this, p)
             showResult(p)
             Toast.makeText(this, "သိမ်းပြီးပြီ", Toast.LENGTH_SHORT).show()
             finish()
         }
         if (Store.hasProfile(this)) showResult(cur)
+    }
+
+    /** Selected button = orange fill + white text + higher elevation;
+     *  unselected = pale cream fill + dark text. */
+    private fun styleChoice(b: Button, selected: Boolean) {
+        if (selected) {
+            b.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#E86A17"))
+            b.setTextColor(Color.WHITE)
+            b.elevation = 8f
+        } else {
+            b.backgroundTintList = ColorStateList.valueOf(Color.parseColor("#FFF6E5"))
+            b.setTextColor(Color.parseColor("#2B1A0E"))
+            b.elevation = 4f
+        }
+    }
+
+    private fun refreshChoiceStyles() {
+        styleChoice(btnGenderMale, genderMale)
+        styleChoice(btnGenderFemale, !genderMale)
+        actButtons.forEachIndexed { i, b -> styleChoice(b, i == activityIdx) }
+        goalButtons.forEachIndexed { i, b -> styleChoice(b, i == goalIdx) }
     }
 }

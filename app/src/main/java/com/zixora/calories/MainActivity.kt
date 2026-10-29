@@ -1,5 +1,7 @@
 package com.zixora.calories
 
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,6 +50,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var txtRemain: TextView
     private lateinit var txtSummary: TextView
     private lateinit var progress: android.widget.ProgressBar
+    // Banner animation (ValueAnimator/ObjectAnimator only, no libraries).
+    // Started in onResume, cancelled in onPause so nothing animates off-screen.
+    private var streakAnimator: ValueAnimator? = null
+    private var lanternAnimatorL: ObjectAnimator? = null
+    private var lanternAnimatorR: ObjectAnimator? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -77,7 +84,51 @@ class MainActivity : AppCompatActivity() {
         refresh()
     }
 
-    override fun onResume() { super.onResume(); refresh() }
+    override fun onResume() { super.onResume(); refresh(); startBannerAnimation() }
+
+    override fun onPause() { stopBannerAnimation(); super.onPause() }
+
+    private fun startBannerAnimation() {
+        stopBannerAnimation()
+        val banner: android.view.View = findViewById(R.id.bannerBox)
+        val streak: android.view.View = findViewById(R.id.streakView)
+        val left: android.widget.ImageView = findViewById(R.id.lanternLeft)
+        val right: android.widget.ImageView = findViewById(R.id.lanternRight)
+        // Lantern glow pulse: alpha 0.75 -> 1.0, gentle reverse loop.
+        lanternAnimatorL = ObjectAnimator.ofFloat(left, "alpha", 0.75f, 1f).apply {
+            duration = 1800; repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.REVERSE; start()
+        }
+        lanternAnimatorR = ObjectAnimator.ofFloat(right, "alpha", 0.75f, 1f).apply {
+            duration = 1800; startDelay = 900; repeatCount = ValueAnimator.INFINITE
+            repeatMode = ValueAnimator.REVERSE; start()
+        }
+        // Light streak: sweep left -> right for ~70% of the cycle, then hold
+        // off-screen so there is a quiet pause between sweeps.
+        banner.post {
+            val width = banner.width
+            if (width <= 0) return@post
+            val sweep = ValueAnimator.ofFloat(0f, 1f).apply {
+                duration = 5500; repeatCount = ValueAnimator.INFINITE
+                addUpdateListener { anim ->
+                    val f = anim.animatedValue as Float
+                    streak.translationX = if (f < 0.7f) {
+                        -220f + (width + 440f) * (f / 0.7f)
+                    } else {
+                        width + 220f
+                    }
+                }
+            }
+            streakAnimator = sweep
+            sweep.start()
+        }
+    }
+
+    private fun stopBannerAnimation() {
+        streakAnimator?.cancel(); streakAnimator = null
+        lanternAnimatorL?.cancel(); lanternAnimatorL = null
+        lanternAnimatorR?.cancel(); lanternAnimatorR = null
+    }
 
     private fun refresh() {
         val date = Store.today()
