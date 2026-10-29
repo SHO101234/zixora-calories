@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Thadingyut banner: deep maroon -> orange gradient, gold border -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="45"
+        android:startColor="#7A1F1F"
+        android:centerColor="#B84A0E"
+        android:endColor="#E86A17" />
+    <stroke android:width="2dp" android:color="#E8A020" />
+    <corners android:radius="20dp" />
+</shape>
