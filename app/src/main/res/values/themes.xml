@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Thadingyut theme: warm gold / orange / deep warm brown, no photos, no AI images -->
+    <color name="gold">#E8A020</color>
+    <color name="gold_light">#F5B942</color>
+    <color name="orange">#E86A17</color>
+    <color name="deep_brown">#3E1F0E</color>
+    <color name="maroon">#7A1F1F</color>
+    <color name="cream">#FFF6E5</color>
+    <color name="card">#FFFFFF</color>
+    <color name="ink">#2B1A0E</color>
+    <color name="ink_soft">#6B4A2E</color>
+
+    <style name="Theme.CalorieApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/orange</item>
+        <item name="colorPrimaryVariant">@color/maroon</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="android:statusBarColor">@color/deep_brown</item>
+        <item name="android:windowBackground">@color/cream</item>
+    </style>
+
+    <style name="CardStyle">
+        <item name="android:background">@drawable/card_bg</item>
+        <item name="android:padding">16dp</item>
+    </style>
+</resources>
