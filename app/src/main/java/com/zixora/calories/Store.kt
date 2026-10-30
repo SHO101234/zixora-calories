@@ -39,24 +39,84 @@ object Store {
     fun hasProfile(ctx: Context): Boolean =
         ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).contains("age")
 
-    fun loadEntries(ctx: Context, date: String): MutableList<Entry> {
+    fun loadEntries(ctx: Context, date: String): MutableList<Entry> =
+        loadAllEntries(ctx).filter { it.date == date }.toMutableList()
+
+    /** ရက်စွဲအလိုက် သိမ်းထားတဲ့ မှတ်တမ်းအားလုံး (ရက်အလိုက် ပြန်ကြည့်ဖို့) */
+    fun loadAllEntries(ctx: Context): MutableList<Entry> {
         val raw = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             .getString("entries", "[]") ?: "[]"
         val out = mutableListOf<Entry>()
         val arr = JSONArray(raw)
         for (i in 0 until arr.length()) {
             val o: JSONObject = arr.getJSONObject(i)
-            if (o.getString("date") == date) {
-                out.add(
-                    Entry(
-                        o.getLong("id"), o.getString("date"),
-                        o.getString("name"), o.getString("detail"),
-                        o.getInt("kcal")
-                    )
+            out.add(
+                Entry(
+                    o.getLong("id"), o.getString("date"),
+                    o.getString("name"), o.getString("detail"),
+                    o.getInt("kcal")
                 )
-            }
+            )
         }
         return out
+    }
+
+    /** မှတ်တမ်း ရှိတဲ့ ရက်စွဲတွေ — အသစ်ဆုံး အရင် (yyyy-MM-dd ဆိုတော့ စာလုံးစဉ်အတိုင်း စီရင် ရက်စဉ်အတိုင်း ဖြစ်တယ်) */
+    fun datesWithEntries(ctx: Context): List<String> =
+        loadAllEntries(ctx).map { it.date }.distinct().sortedDescending()
+
+    /** ခဏခဏ စားတဲ့ အစားအစာ နာမည်တွေ — အကြိမ်အများဆုံး အရင်၊ limit ခုအထိ */
+    fun frequentFoodNames(ctx: Context, limit: Int): List<String> {
+        val counts = LinkedHashMap<String, Int>()
+        for (e in loadAllEntries(ctx)) {
+            counts[e.name] = (counts[e.name] ?: 0) + 1
+        }
+        return counts.entries.sortedByDescending { it.value }.take(limit).map { it.key }
+    }
+
+    // ---- တစ်ရက်ရဲ့ ပန်းတိုင် မှတ်တမ်း (ရှေ့ရက်တွေကို ပြန်ကြည့်တဲ့အခါ အဲဒီနေ့က ပန်းတိုင်နဲ့ ယှဉ်ပြဖို့) ----
+    // အဟောင်းဒေတာမှာ snapshot မရှိရင် လက်ရှိပန်းတိုင်ကို ပြမယ် — အဟောင်း key တွေကို လုံးဝ မထိဘူး။
+    fun snapshotTarget(ctx: Context, date: String, target: Int) {
+        val prefs = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val raw = prefs.getString("target_snapshots", "{}") ?: "{}"
+        val obj = JSONObject(raw)
+        obj.put(date, target)
+        prefs.edit().putString("target_snapshots", obj.toString()).apply()
+    }
+
+    fun loadTargetSnapshot(ctx: Context, date: String): Int? {
+        val raw = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getString("target_snapshots", "{}") ?: "{}"
+        val obj = JSONObject(raw)
+        return if (obj.has(date)) obj.getInt(date) else null
+    }
+
+    // ---- ဝိတ်မှတ်တမ်း (ရက်စွဲအလိုက်၊ profile ရဲ့ ဝိတ်နဲ့ သီးခြား — profile ကို မထိဘူး) ----
+    fun loadWeights(ctx: Context): MutableList<WeightRecord> {
+        val raw = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            .getString("weights", "[]") ?: "[]"
+        val out = mutableListOf<WeightRecord>()
+        val arr = JSONArray(raw)
+        for (i in 0 until arr.length()) {
+            val o: JSONObject = arr.getJSONObject(i)
+            out.add(WeightRecord(o.getString("date"), o.getDouble("weight")))
+        }
+        return out
+    }
+
+    fun saveWeight(ctx: Context, record: WeightRecord) {
+        val prefs = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+        val old = loadWeights(ctx)
+        val next = old.filter { it.date != record.date }.toMutableList()
+        next.add(record)
+        next.sortBy { it.date }
+        val arr = JSONArray()
+        for (r in next) {
+            val o = JSONObject()
+            o.put("date", r.date); o.put("weight", r.weight)
+            arr.put(o)
+        }
+        prefs.edit().putString("weights", arr.toString()).apply()
     }
 
     fun addEntry(ctx: Context, e: Entry) {
@@ -67,6 +127,9 @@ object Store {
         o.put("name", e.name); o.put("detail", e.detail); o.put("kcal", e.kcal)
         arr.put(o)
         prefs.edit().putString("entries", arr.toString()).apply()
+        // ဒီနေ့ရဲ့ ပန်းတိုင်ကို အဲဒီနေ့အတွက်ပါ သိမ်းထားမယ် (နောက်မှ ပြန်ကြည့်တဲ့အခါ သုံးဖို့)
+        val target = if (hasProfile(ctx)) Calc.target(loadProfile(ctx)) else 2000
+        snapshotTarget(ctx, e.date, target)
     }
 
     fun deleteEntry(ctx: Context, id: Long) {

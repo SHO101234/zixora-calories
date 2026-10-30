@@ -19,6 +19,12 @@ data class Entry(
     val kcal: Int
 )
 
+/** ဝိတ်မှတ်တမ်း တစ်ခု — ရက်စွဲအလိုက်။ profile ရဲ့ ဝိတ်နဲ့ သီးခြား သိမ်းတယ်။ */
+data class WeightRecord(
+    val date: String, // yyyy-MM-dd
+    val weight: Double // kg
+)
+
 data class Profile(
     val isMale: Boolean = true,
     val age: Int = 29,

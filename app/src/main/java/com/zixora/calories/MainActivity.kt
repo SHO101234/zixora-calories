@@ -4,6 +4,8 @@ import android.animation.ObjectAnimator
 import android.animation.ValueAnimator
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -95,6 +97,12 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnGuide).setOnClickListener {
             startActivity(Intent(this, GuideActivity::class.java))
         }
+        findViewById<Button>(R.id.btnHistory).setOnClickListener {
+            startActivity(Intent(this, HistoryActivity::class.java))
+        }
+        findViewById<Button>(R.id.btnWeight).setOnClickListener {
+            startActivity(Intent(this, WeightActivity::class.java))
+        }
         refresh()
     }
 
@@ -151,22 +159,63 @@ class MainActivity : AppCompatActivity() {
         refresh()
     }
 
-    // ---- စာရင်းထဲက ရွေးတာ: built-in + ကိုယ့်အစားအစာ ----
+    // ---- စာရင်းထဲက ရွေးတာ: built-in + ကိုယ့်အစားအစာ + ရှာတာ + ခဏခဏ စားတာ ----
     private fun showFoodPicker() {
         val view = layoutInflater.inflate(R.layout.dialog_food_picker, null)
         val list: RecyclerView = view.findViewById(R.id.pickerList)
         list.layoutManager = LinearLayoutManager(this)
         val customs = Store.loadCustomFoods(this)
-        // ရိုးရှင်းတဲ့ စာရင်း: built-in တွေ အရင်၊ ပြီးမှ ကိုယ့်အစားအစာတွေ
-        val rows = mutableListOf<String>()
-        Foods.ALL.forEach { rows.add("B|${it.name}") }
-        customs.forEach { rows.add("C|${it.id}") }
+        // စာရင်းအပြည့် (ရှာတာအတွက်): built-in တွေ အရင်၊ ပြီးမှ ကိုယ့်အစားအစာတွေ
+        val fullRows = mutableListOf<String>()
+        Foods.ALL.forEach { fullRows.add("B|${it.name}") }
+        customs.forEach { fullRows.add("C|${it.id}") }
+        // ခဏခဏ စားတာ (အလိုအလျောက် — မှတ်တမ်းထဲက အကြိမ်အရေ အလိုက်၊ အများဆုံး ၅ ခု)။
+        // နာမည်နဲ့ ပြန်ရှာလို့ရတဲ့ အစားအစာတွေပဲ ယူတယ် (ဖျက်လိုက်တဲ့ ကိုယ့်အစားအစာဆို ကျော်တယ်)။
+        val frequentRows = mutableListOf<String>()
+        for (name in Store.frequentFoodNames(this, 5)) {
+            val builtIn = Foods.ALL.firstOrNull { it.name == name }
+            if (builtIn != null) frequentRows.add("B|${builtIn.name}")
+            else {
+                val custom = customs.firstOrNull { it.name == name }
+                if (custom != null) frequentRows.add("C|${custom.id}")
+            }
+        }
+        // ပြမယ့် စာရင်း: ရှာစာသား မရှိရင် ခဏခဏ + အားလုံး (ခေါင်းစဉ်နဲ့တကွ)၊ ရှာရင် ကိုက်ညီတာပဲ။
+        val shownRows = mutableListOf<String>()
+        fun rebuildShown(query: String) {
+            shownRows.clear()
+            val q = query.trim()
+            if (q.isEmpty()) {
+                if (frequentRows.isNotEmpty()) {
+                    shownRows.add("H|ခဏခဏ စားတာ")
+                    shownRows.addAll(frequentRows)
+                }
+                shownRows.add("H|စာရင်းအားလုံး")
+                shownRows.addAll(fullRows)
+            } else {
+                for (row in fullRows) {
+                    val name = if (row.startsWith("B|")) {
+                        Foods.ALL.first { it.name == row.substring(2) }.name
+                    } else {
+                        customs.first { it.id == row.substring(2).toLong() }.name
+                    }
+                    if (name.contains(q)) shownRows.add(row)
+                }
+            }
+        }
+        rebuildShown("")
         val ad = object : RecyclerView.Adapter<PickerHolder>() {
             override fun onCreateViewHolder(p: ViewGroup, t: Int) =
                 PickerHolder(LayoutInflater.from(p.context).inflate(R.layout.item_entry, p, false))
             override fun onBindViewHolder(h: PickerHolder, pos: Int) {
-                val row = rows[pos]
-                if (row.startsWith("B|")) {
+                val row = shownRows[pos]
+                if (row.startsWith("H|")) {
+                    h.name.text = row.substring(2)
+                    h.detail.text = ""
+                    h.kcal.text = ""
+                    h.del.visibility = View.GONE
+                    h.itemView.setOnClickListener(null)
+                } else if (row.startsWith("B|")) {
                     val f = Foods.ALL.first { it.name == row.substring(2) }
                     h.name.text = f.name
                     h.detail.text = "${f.unit} • ${f.kcalPerUnit} kcal" +
@@ -186,9 +235,21 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-            override fun getItemCount() = rows.size
+            override fun getItemCount() = shownRows.size
+            fun filter(query: String) {
+                rebuildShown(query)
+                notifyDataSetChanged()
+            }
         }
         list.adapter = ad
+        val searchBox: EditText = view.findViewById(R.id.pickerSearch)
+        searchBox.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                ad.filter(s?.toString() ?: "")
+            }
+        })
         val dlg = AlertDialog.Builder(this)
             .setTitle("အစားအစာ ရွေးပါ")
             .setView(view)
@@ -294,6 +355,8 @@ class MainActivity : AppCompatActivity() {
     // ---- ကိုယ့်စာရင်း: ထည့် / ပြင် / ဖျက် ----
     private fun showCustomList() {
         val view = layoutInflater.inflate(R.layout.dialog_food_picker, null)
+        // ကိုယ့်စာရင်း dialog မှာ ရှာတာက အလုပ်မလုပ်ဘူး — အသုံးမဝင်တဲ့ ရှာခွက်ကို ဖျောက်ထားမယ်။
+        view.findViewById<EditText>(R.id.pickerSearch).visibility = View.GONE
         val list: RecyclerView = view.findViewById(R.id.pickerList)
         list.layoutManager = LinearLayoutManager(this)
         lateinit var dlg: AlertDialog
