@@ -4,6 +4,15 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="16dp">
+    <EditText
+        android:id="@+id/pickerSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/input_bg"
+        android:hint="အစားအစာ ရှာမယ်... (နာမည်နဲ့ ရှာလို့ရတယ်)"
+        android:inputType="text"
+        android:textSize="16sp" />
     <Button
         android:id="@+id/btnNewFood"
         android:layout_width="match_parent"

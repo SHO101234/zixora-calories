@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/ice">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="စားမှတ်တမ်း (ရှေ့ရက်တွေ)"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ရှေ့ရက်တွေကို ကြည့်ရုံပဲ — ပြင်လို့ မရဘူး။"
+            android:textSize="16sp"
+            android:textColor="@color/ink" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+            <Button
+                android:id="@+id/btnHistPrev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/blue"
+                android:textColor="@android:color/white"
+                android:text="‹ အရင်ရက်" />
+            <TextView
+                android:id="@+id/histDate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="—"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/deep_navy" />
+            <Button
+                android:id="@+id/btnHistNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/teal"
+                android:textColor="@android:color/white"
+                android:text="နောက်ရက် ›" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/histTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/teal" />
+        <TextView
+            android:id="@+id/histTarget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="16sp"
+            android:textColor="@color/ink" />
+        <TextView
+            android:id="@+id/histEmpty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:visibility="gone"
+            android:text="မှတ်တမ်း မရှိသေးဘူး — ဒီနေ့ အစားအစာ ထည့်လိုက်ရင် ဒီမှာ ပေါ်လာမယ်။"
+            android:textSize="16sp"
+            android:textColor="@color/ink_soft" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="အဲဒီနေ့ စားထားတာတွေ"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <LinearLayout
+            android:id="@+id/histEntryContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="မှတ်တမ်း ရှိတဲ့ ရက်တွေ (နှိပ်ပြီး ရွေးလို့ရတယ်)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <LinearLayout
+            android:id="@+id/histDateContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+</ScrollView>

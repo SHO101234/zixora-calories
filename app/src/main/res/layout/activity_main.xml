@@ -252,6 +252,34 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
+    <!-- Secondary row: History + Weight — small, below the list, Home's 3-step flow untouched -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btnHistory"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:backgroundTint="@color/blue_light"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:text="📅  ရှေ့ရက် မှတ်တမ်း" />
+        <Button
+            android:id="@+id/btnWeight"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:backgroundTint="@color/teal_light"
+            android:textColor="@android:color/white"
+            android:textSize="14sp"
+            android:text="⚖️  ဝိတ်မှတ်တမ်း" />
+    </LinearLayout>
+
     <!-- Bottom nav: fixed 56dp bar, all three tabs exactly equal height, no overlap -->
     <LinearLayout
         android:layout_width="match_parent"

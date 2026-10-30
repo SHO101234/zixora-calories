@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/ice">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ဝိတ်မှတ်တမ်း"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="ဒီနေ့ဝိတ်ကို တစ်နေ့ တစ်ခါ မှတ်လိုက်ပါ။ ဒီနေ့မှာ ရှိပြီးသား မှတ်တမ်းကို ပြန်သိမ်းရင် အသစ်က အဟောင်းကို အစားထိုးမယ်။"
+            android:textSize="16sp"
+            android:textColor="@color/ink" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ဒီနေ့ဝိတ် (ကီလိုဂရမ်)"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <EditText
+            android:id="@+id/etWeightRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/input_bg"
+            android:hint="ဥပမာ ၆၅.၅"
+            android:inputType="numberDecimal"
+            android:textSize="18sp" />
+        <Button
+            android:id="@+id/btnSaveWeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/teal"
+            android:textColor="@android:color/white"
+            android:elevation="6dp"
+            android:text="သိမ်းမယ်"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/weightSummary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            android:textColor="@color/ink" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="ဝိတ်ပြောင်းလဲမှု ဂရပ်"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <com.zixora.calories.WeightGraphView
+            android:id="@+id/weightGraph"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/card_bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="မှတ်ထားတဲ့ ဝိတ်တွေ (အသစ်ဆုံး အရင်)"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/deep_navy" />
+        <LinearLayout
+            android:id="@+id/weightListContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </LinearLayout>
+</ScrollView>
